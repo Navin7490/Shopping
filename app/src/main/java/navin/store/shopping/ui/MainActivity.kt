@@ -57,6 +57,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
+                    var shopFragment=ShopFragment()
+                    shopFragment.adapterShops!!.filter.filter(newText)
                     return false
                 }
 

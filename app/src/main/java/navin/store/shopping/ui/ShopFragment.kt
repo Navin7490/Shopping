@@ -21,7 +21,7 @@ class ShopFragment : Fragment() {
     private var viewBinding:FragmentShopBinding?=null
     private var recyclerView:RecyclerView?=null
     private var listShops:ArrayList<ModelShops>?=null
-    private var adapterShops:AdapterShops?=null
+    public var adapterShops:AdapterShops?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

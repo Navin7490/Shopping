@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +14,10 @@ import navin.store.shopping.R
 import navin.store.shopping.model.ModelShops
 
 class AdapterShops(private val context: Context, val listShops:List<ModelShops>):
-    RecyclerView.Adapter<ViewHolderShops>() {
+    RecyclerView.Adapter<ViewHolderShops>(),Filterable {
+
+    var listShopss:ArrayList<ModelShops>?=ArrayList<ModelShops>(listShops)
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderShops {
@@ -24,12 +29,48 @@ class AdapterShops(private val context: Context, val listShops:List<ModelShops>)
 
     override fun onBindViewHolder(holder: ViewHolderShops, position: Int) {
         val shops=listShops[position]
+        listShopss= ArrayList<ModelShops>(listShopss)
         holder.shopsDataBinding(shops)
     }
 
     override fun getItemCount(): Int {
         return listShops.size
     }
+
+    override fun getFilter(): Filter {
+        return exampleFilter
+    }
+    private val exampleFilter:Filter= object : Filter() {
+        override fun performFiltering(constraint: CharSequence?): FilterResults? {
+            var filteredList:ArrayList<ModelShops> = ArrayList()
+            if (constraint==null || constraint.isEmpty()){
+                listShopss?.let { filteredList.addAll(it) }
+            } else{
+                var filterPattern=constraint.toString().toLowerCase().trim()
+//                for (item :ModelShops in exampleFilter ){
+//                    var item=ModelShops("","","",)
+//
+//                    if (item.shopName.toLowerCase().contains(filterPattern)){
+//                        filteredList.add(item)
+//                    }
+//
+//                }
+            }
+            var result=FilterResults()
+            result.values=filteredList
+            return result
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+            listShopss?.clear()
+            if (results != null) {
+                listShopss?.addAll(results.values as Collection<ModelShops>)
+            }
+            notifyDataSetChanged()
+        }
+    }
+
+
 }
 class ViewHolderShops(private val context: Context, itemView: View):
     RecyclerView.ViewHolder(itemView) {
