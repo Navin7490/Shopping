@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgation_graph"
+    app:startDestination="@id/shopFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="navin.store.shopping.ui.HomeFragment"
+        android:label="HomeFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="navin.store.shopping.ui.RegistrationFragment"
+        android:label="Registration" >
+
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="navin.store.shopping.ui.LoginFragment"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="navin.store.shopping.ui.ShopFragment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="navin.store.shopping.ui.AccountFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="navin.store.shopping.ui.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart" />
+</navigation>

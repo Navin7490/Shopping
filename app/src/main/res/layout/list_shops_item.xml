@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <RelativeLayout
+           android:padding="5sp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" >
+           <TextView
+               android:id="@+id/tvShopID"
+               android:visibility="gone"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+           <ImageView
+               android:id="@+id/imShop"
+               android:src="@drawable/ic_shop"
+               android:adjustViewBounds="true"
+               android:scaleType="fitXY"
+               android:layout_width="100sp"
+               android:layout_height="100sp"/>
+           <TextView
+               android:id="@+id/tvShopName"
+               android:text="Navin Footwear"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginStart="110sp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+           <TextView
+               android:id="@+id/tvShopType"
+               android:text="Footwear"
+               android:layout_marginStart="110sp"
+               android:textSize="18sp"
+               android:layout_below="@+id/tvShopName"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+           <TextView
+               android:id="@+id/tvShopAddress"
+               android:text="Navrangpura"
+               android:layout_marginStart="110sp"
+               android:textSize="18sp"
+               android:layout_below="@+id/tvShopType"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
